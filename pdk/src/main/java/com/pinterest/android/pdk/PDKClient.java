@@ -360,7 +360,7 @@ public class PDKClient {
         params.put("board", boardId);
         params.put("note", note);
         if (!Utils.isEmpty(link)) params.put("link", link);
-        if (!Utils.isEmpty(link)) params.put("image_url", imageUrl);
+        if (!Utils.isEmpty(image_url)) params.put("image_url", imageUrl);
         postPath(PINS, params, callback);
     }
 
