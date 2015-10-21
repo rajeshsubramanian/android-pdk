@@ -132,6 +132,23 @@ public class PDKClient {
     // API Interface
     // ================================================================================
 
+    /**
+     * Set Oauth Access token
+     */
+    public void setAccessToken(String token) {
+        _accessToken = token;
+        saveAccessToken(_accessToken);
+    }
+
+    /**
+     *  The oauth Token returned from the server upon authentication. If you store this in your
+     *  app, please be sure to do so securely and be warned that it can expire
+     *  at any time. If the token expires, you will need to re-authenticate and get a new token.
+     */
+    public String getAccessToken() {
+        return _accessToken;
+    }
+
     public void logout() {
         _accessToken = null;
         _scopes = null;
@@ -360,7 +377,7 @@ public class PDKClient {
         params.put("board", boardId);
         params.put("note", note);
         if (!Utils.isEmpty(link)) params.put("link", link);
-        if (!Utils.isEmpty(image_url)) params.put("image_url", imageUrl);
+        if (!Utils.isEmpty(imageUrl)) params.put("image_url", imageUrl);
         postPath(PINS, params, callback);
     }
 
