@@ -18,6 +18,7 @@ public class PDKPin extends PDKModel {
     private PDKUser user;
     private String link;
     private String note;
+    private String color;
     private String metadata;
     private Date createdAt;
     private Integer likeCount;
@@ -38,6 +39,9 @@ public class PDKPin extends PDKModel {
                 }
                 if (dataObj.has("note")) {
                     pin.setNote(dataObj.getString("note"));
+                }
+                if (dataObj.has("color")) {
+                    pin.setColor(dataObj.getString("color"));
                 }
                 if (dataObj.has("metadata")) {
                    pin.setMetadata(dataObj.get("metadata").toString());
@@ -130,6 +134,10 @@ public class PDKPin extends PDKModel {
         return note;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     public String getMetadata() {
         return metadata;
     }
@@ -173,6 +181,10 @@ public class PDKPin extends PDKModel {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public void setMetadata(String metadata) {
